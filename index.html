@@ -3,6 +3,7 @@
 <head>
   <title>Markdown Editor</title>
   <script src="node_modules/marked/marked.min.js"></script>
+  <script src="node_modules/vivliostyle/lib/vivliostyle.min.js"></script>
   <script src="node_modules/prismjs/prism.js"></script>
   <script src="emojify.js"></script>
   <script src="codemirror/lib/codemirror.js"></script>
@@ -296,6 +297,28 @@ the inspiration to this, and some handy implementation hints, came.
     });
 
 
+
+    /* ====== Vivliostyle ====== */
+
+    function Viewer() {
+      this.viewer = new vivliostyle.viewer.Viewer({
+        userAgentRootURL: 'node_modules/vivliostyle/resources/',
+        viewportElement: document.getElementById('out'),
+        debug: true
+      });
+    }
+
+    Viewer.prototype.render = function(body) {
+      const url = window.URL.createObjectURL(new Blob(
+        ['<html><body>' + body + '</body></html>'], {type: 'text/html'}
+      ));
+      this.viewer.loadDocument(url, {}, {});
+    }
+
+    /* ========================= */
+
+    var vv = new Viewer();
+
     var hashto;
 
     function update(e){
@@ -310,7 +333,9 @@ the inspiration to this, and some handy implementation hints, came.
         return '<img src="http://latex.codecogs.com/png.latex?' + encodeURIComponent(b) + '" />';
       });
 
-      var out = document.getElementById('out');
+      vv.render(marked(val));
+
+      /*var out = document.getElementById('out');
       var old = out.cloneNode(true);
       out.innerHTML = marked(val);
       emojify.run(out);
@@ -326,7 +351,7 @@ the inspiration to this, and some handy implementation hints, came.
           out.scrollTop = allnew[i].offsetTop;
           return;
         }
-      }
+      }*/
     }
 
     var editor = CodeMirror.fromTextArea(document.getElementById('code'), {

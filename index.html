@@ -228,24 +228,30 @@
 </head>
 <body>
   <div id="in"><form><textarea id="code"># (GitHub-Flavored) Markdown Editor
+# pentapod 技術書典2 原稿プレビューワ
 
-Basic useful feature list:
+## これはなに
 
- * Ctrl+S / Cmd+S to save the file
- * Ctrl+Shift+S / Cmd+Shift+S to choose to save as Markdown or HTML
- * Drag and drop a file into here to load it
- * File contents are saved in the URL so you can share files
+技術書典2にてpentapodが発刊する，合同誌のレイアウトやページ数を確認するための簡易プレビューワ&エディタです．
+左ペインにMarkdownで原稿を書くと右ペインに原稿のプレビューが現れます．
 
+ * Ctrl+S / Cmd+S でMarkdownファイルをダウンロードします
+ * Ctrl+Shift+S / Cmd+Shift+S でMarkdownかHTMLを選んでダウンロードします
+ * ドラッグ&ドロップでファイルを読み込みます
+ * ファイル内容はハッシュとしてURLに保存されます
 
-I'm no good at writing sample / filler text, so go write something yourself.
+## レイアウトサンプル
 
-Look, a list!
+レイアウトは編集中のため突如大胆に変わる可能性があります．
 
- * foo
- * bar
- * baz
+### 箇条書き
 
-And here's some code! :+1:
+* サーバル
+* かばん
+* ハシビロコウ
+  - 絵文字が使えます:angel:
+
+### スニペット
 
 ```javascript
 $(function(){
@@ -253,18 +259,22 @@ $(function(){
 });
 ```
 
-This is [on GitHub](https://github.com/jbt/markdown-editor) so let me know if I've b0rked it somewhere.
+シンタックスハイライトに対応する言語は → http://prismjs.com/#languages-list
 
+### 表
 
-Props to Mr. Doob and his [code editor](http://mrdoob.com/projects/code-editor/), from which
-the inspiration to this, and some handy implementation hints, came.
+| 中央揃え | 左揃え |
+|:----------:|:---------|
+| うぇるかむ | とぅ |
+| ざ | じゃぱりぱー |
 
-### Stuff used to make this:
+### 図
 
- * [markdown-it](https://github.com/markdown-it/markdown-it) for Markdown parsing
- * [CodeMirror](http://codemirror.net/) for the awesome syntax-highlighted editor
- * [highlight.js](http://softwaremaniacs.org/soft/highlight/en/) for syntax highlighting in output code blocks
- * [js-deflate](https://github.com/dankogai/js-deflate) for gzipping of data to make it fit in URLs
+![404](http://lohas.nicoseiga.jp/thumb/6477133i?1486829606)
+
+## リポジトリ
+
+https://github.com/pentapod/tbf02-previewer
 </textarea></form></div>
   <div class="out-wrapper">
     <div id="out"></div>

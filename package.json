@@ -8,7 +8,7 @@
   },
   "author": "spring-raining",
   "private": true,
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "dependencies": {
     "marked": "^0.3.6",
     "prismjs": "^1.6.0",
